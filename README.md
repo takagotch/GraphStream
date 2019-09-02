@@ -50,7 +50,13 @@ public class ExampleByteProxy {
   
   
   
-  
+  @Override
+  public void stepBegins(String sourceId, long timeId, double step) {
+    ByteBuffer buffer = ByteBuffer.allocate(1);
+    buffer.put((byte) 0x60);
+    
+    send(buffer);
+  }
 }
 
 
